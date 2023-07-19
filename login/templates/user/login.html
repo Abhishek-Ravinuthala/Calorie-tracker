@@ -1,0 +1,27 @@
+{% extends "user/index.html" %}
+{% load crispy_forms_tags %}
+{% block start %}
+<style>
+  .flexy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+</style>
+
+ <div class="flexy content-section col-md-12 col-md-offset-2">
+
+  <form method="POST" style="border: 1px solid black; margin: 4%; padding:10%; border-radius:1%;">
+    {% csrf_token %}
+    <fieldset class="form-group">
+           {{ form.as_p}}
+    </fieldset>
+
+    <button  style=" padding:1%; font-size: 1rem; color:white;" class="btn btn-success btn-outline-info my-4" type="submit">Login</button>
+ 
+  <br/>
+  <sub style="text-align: left;"><a href="{% url 'register' %}" style="text-decoration: none;   text-align: center; color: rgb(8, 8, 5); padding:3%; cursor:pointer;">Don't have an account? Sign up today!</a></sub>
+  </form>
+
+ </div>
+{% endblock start %}
